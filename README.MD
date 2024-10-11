@@ -21,7 +21,7 @@
 ### 1. Клонирование репозитория
 git clone https://github.com/malkovila/Malkov_Ilia_HW_KG_BIV238
 
-cd название-репозитория.
+cd Malkov_Ilia_HW_KG_BIV238
 
 ### 2. Построение Docker-образа
 docker build -t имя-образа .
