@@ -19,7 +19,8 @@
 ## Установка и запуск
 
 ### 1. Клонирование репозитория
-git clone https://github.com/ваш-логин/название-репозитория.git
+git clone https://github.com/malkovila/Malkov_Ilia_HW_KG_BIV238
+
 cd название-репозитория.
 
 ### 2. Построение Docker-образа
