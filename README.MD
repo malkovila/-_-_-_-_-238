@@ -24,8 +24,6 @@ git clone https://github.com/malkovila/Malkov_Ilia_HW_KG_BIV238
 cd Malkov_Ilia_HW_KG_BIV238
 
 ### 2. Построение Docker-образа
-docker build -t имя-образа .
+docker-compose up --build
 
-### 3. Запуск контейнера
-docker run -d -p 8080:8080 имя-образа
 
