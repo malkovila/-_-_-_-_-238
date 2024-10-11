@@ -1,20 +1,24 @@
-# Используем базовый образ с Python
-FROM python:3.9-slim
+# Указываем базовый образ с Python 3.10
+FROM python:3.10-slim
 
-# Устанавливаем необходимые системные зависимости
-RUN apt-get update && apt-get install -y \
-    python3-tk \
-    libgl1-mesa-glx \
-    && rm -rf /var/lib/apt/lists/*
-
-# Устанавливаем необходимые пакеты Python
-RUN pip install pillow
-
-# Устанавливаем рабочую директорию
+# Устанавливаем рабочую директорию внутри контейнера
 WORKDIR /app
 
-# Копируем все файлы в контейнер
-COPY . /app
+# Устанавливаем необходимые пакеты для Tkinter и X11
+RUN apt-get update && apt-get install -y \
+    python3-tk \
+    libx11-6 \
+    libxft2 \
+    libxext6 \
+    libxrender1 \
+    && apt-get clean
 
-# Запускаем скрипт
-CMD ["python", "main.py"]
+# Устанавливаем Python зависимости
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Копируем весь код в контейнер
+COPY . .
+
+# Команда запуска приложения
+CMD ["python3", "main.py"]
